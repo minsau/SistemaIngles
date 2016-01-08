@@ -4,6 +4,7 @@ CREATE TABLE Persona (
   apellidos VARCHAR(150) NOT NULL,
   correo VARCHAR(150) NOT NULL,
   password VARCHAR(50) NOT NULL,
+  tipo VARCHAR(30) NOT NULL,
   PRIMARY KEY (id_persona));
 
 
