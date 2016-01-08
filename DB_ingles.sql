@@ -1,3 +1,6 @@
+CREATE DATABASE Ingles;
+use Ingles;
+
 CREATE TABLE Persona (
   id_persona INT NOT NULL AUTO_INCREMENT,
   nombre VARCHAR(150) NOT NULL,
