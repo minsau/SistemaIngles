@@ -24,7 +24,7 @@
 						<label> Contraseña:  </label> <input type="password" name="pass" id="pass" class="form-control" required>
 					</div>
 
-					<input type="submit" value="Ingresar" class="btn btn-primary">	Si eres nuevo por favor <a href="alumno.php?nuevo=0"> Registrate </a>
+					<input type="submit" value="Ingresar" class="btn btn-primary">	Si eres nuevo por favor <a href="alumno.php?nuevo=1"> Registrate </a>
 				</form>
 			</div>
 		</div>
