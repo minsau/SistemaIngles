@@ -47,6 +47,7 @@ CREATE TABLE Grupo (
 CREATE TABLE Movimiento (
   id_movimiento INT NOT NULL AUTO_INCREMENT,
   id_grupo_anterior INT NOT NULL,
+  id_grupo_acursar INT,
   id_alumno INT NOT NULL,
   tipo VARCHAR(45) NULL,
   estado VARCHAR(45) NULL,
