@@ -4,7 +4,8 @@
 	//if(isset($con)){
 	//	echo "Conexión realizada exitosamente";
 	//}
-	mysql_select_db($db);
-	mysql_query("SET NAMES 'UTF-8'");
+	mysql_select_db($db) or die('No se pudo seleccionar la base de datos');;
+
+	mysql_query("SET NAMES 'utf8'");
 
 ?>
