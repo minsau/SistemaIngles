@@ -4,7 +4,22 @@
 	}else{
 		require_once("includes/conexion.php");
 		$nuevo = $_GET['nuevo'];
+		if($nuevo == 1){
+			$sql = "SELECT * FROM Grupo WHERE id_grupo = 2";
+			$res = mysql_query($sql, $con) or die("Hubo un error al obtener los datos: ".mysql_error());
+			$reg = mysql_fetch_array($res) or die("Error al transformar en array: ".mysql_error());
+			$grupoAnterior=	$reg['nivel'];
+		}else if($nuevo == 0){
+			//Falta obtener los datos con una sesion para que esto funcione
+			$sql = "SELECT * FROM Movimiento WHERE idAlumno = $idAlumno";
+			$res = mysql_query($sql, $con) or die("Hubo un error al obtener los datos: ".mysql_error());
+			$reg = mysql_fetch_array($res) or die("Error al transformar en array: ".mysql_error());
+			$grupoAnterior=	$reg['nivel']." ".$reg['dias']." ".$reg['horario'];
+		}
 
+		$sql1 = "SELECT * FROM Grupo WHERE nivel!='Nuevo'";
+		$res1 = mysql_query($sql1, $con) or die("Hubo un error al obtener los datos: ".mysql_error());
+		// or die("Error al transformar en array: ".mysql_error());
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +71,15 @@
 					<div class="form-group">
 						<label for="carrera">Carrera: </label>
 						<select name="carrra" id="carrera" class="form-control" required>
-							<option> Una Carrera </option>
+							<?php
+								$sqlCarreras = "SELECT * FROM Carrera";
+								$resCarreras = mysql_query($sqlCarreras,$con) or die("Hubo un Error al obtener las carreras: ".mysql_error());
+
+								while($regCarrera = mysql_fetch_array($resCarreras)){
+									echo "<option value='".$regCarrera['id_carrera']."'>".$regCarrera['nombre']."</option>";
+								}
+
+							?>
 						</select>
 					</div>
 
@@ -64,6 +87,19 @@
 						<label for="semestre">Semestre: </label><input type="number" name="semestre" id="semestre" class="form-control" required>
 					</div>
 
+					Grupo anterior: <?php echo "<input type='text' name='grupoAnterior' value='".$grupoAnterior."' readonly></br>"; ?>
+					Grupos disponibles: </br>
+
+					<?php
+
+						while($reg1 = mysql_fetch_array($res1)){
+							echo "<div class='form-group'>"
+								."<label class='radio-inline'><input type='radio' name='grupo' id='grupo' value='".$reg1['id_grupo']."'>"
+								.$reg1['nivel']."/".$reg1['grupo_numero']
+								."</label></div>";
+						}
+
+					?>
 					<input type="submit" value="Enviar" class="btn btn-primry">
 				</form>
 			</div>			
