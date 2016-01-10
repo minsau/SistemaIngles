@@ -70,7 +70,7 @@
 
 					<div class="form-group">
 						<label for="carrera">Carrera: </label>
-						<select name="carrra" id="carrera" class="form-control" required>
+						<select name="carrera" id="carrera" class="form-control" required>
 							<?php
 								$sqlCarreras = "SELECT * FROM Carrera";
 								$resCarreras = mysql_query($sqlCarreras,$con) or die("Hubo un Error al obtener las carreras: ".mysql_error());
@@ -86,7 +86,7 @@
 					<div class="form-group">
 						<label for="semestre">Semestre: </label><input type="number" name="semestre" id="semestre" class="form-control" required>
 					</div>
-
+						 <?php echo "<input type='hidden' name='nuevo' value='".$nuevo."' readonly></br>"; ?>
 					Grupo anterior: <?php echo "<input type='text' name='grupoAnterior' value='".$grupoAnterior."' readonly></br>"; ?>
 					Grupos disponibles: </br>
 
