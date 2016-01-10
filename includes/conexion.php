@@ -1,5 +1,5 @@
 <?php
-	$con = mysql_connect('localhost','root','goaa941025') or die("Error al conectar"+mysql_error());
+	$con = mysql_connect('localhost','root','esasistemas') or die("Error al conectar"+mysql_error());
 	$db = "Ingles";
 	//if(isset($con)){
 	//	echo "Conexión realizada exitosamente";

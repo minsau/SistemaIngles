@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	if(!$_GET){
 		echo "hubo un error al desplegar esta página :( ";
 	}else{
@@ -10,7 +11,7 @@
 			$reg = mysql_fetch_array($res) or die("Error al transformar en array: ".mysql_error());
 			$grupoAnterior=	$reg['nivel'];
 		}else if($nuevo == 0){
-			//Falta obtener los datos con una sesion para que esto funcione
+			$idAlumno = $_SESSION['id'];
 			$sql = "SELECT * FROM Movimiento WHERE idAlumno = $idAlumno";
 			$res = mysql_query($sql, $con) or die("Hubo un error al obtener los datos: ".mysql_error());
 			$reg = mysql_fetch_array($res) or die("Error al transformar en array: ".mysql_error());

@@ -15,7 +15,20 @@
 				"alert('Correo no encontrado, se redireccionara a la página de inscripciones');".
 				"document.location.href = 'alumno.php?nuevo=1';</script>";
 		}else{
-			echo "Correo encontrado";
+			$reg = mysql_fetch_array($res) or die("Error al convertir en registros");
+			if($reg['password'] == $pass){
+				$_SESSION['correo'] = $correo;
+				$_SESSION['tipo'] = $reg['tipo'];
+				$_SESSION['id'] = $reg['id_persona'];
+
+				if($reg['tipo'] = 'alumno'){
+					header("Location: alumno.php?nuevo=0");
+				}	
+			}else{
+				echo "<script type='text/javascript'>".
+				"alert('Contraseña incorrecta');".
+				"document.location.href = 'index.php';</script>";
+			}
 		}
 
 
