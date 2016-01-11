@@ -24,6 +24,10 @@
 				if($reg['tipo'] = 'alumno'){
 					header("Location: alumno.php?nuevo=0");
 				}	
+
+				if($reg['tipo'] = 'docente'){
+					header("Location: aprobar.php");
+				}	
 			}else{
 				echo "<script type='text/javascript'>".
 				"alert('Contraseña incorrecta');".
