@@ -1,5 +1,5 @@
 <?php
-
+	session_start();
 	if(!$_POST){
 		echo "No hay datos de inicio de sesión, por favor intenta volver a loguearte <a href='index.php'> Iniciar Sesión </a>";
 	}else{
